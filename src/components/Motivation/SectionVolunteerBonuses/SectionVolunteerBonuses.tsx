@@ -9,7 +9,7 @@ export type SectionVolunteerBonusesProps = {
   tasksLink: string;
 };
 
-type TBonusCardProps = {
+export type TBonusCardProps = {
   logo: string;
   caption: string;
   category: string;
