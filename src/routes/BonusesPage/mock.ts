@@ -3,7 +3,7 @@ import imageAzbuka from "@/assets/img_azbuca_atticus.png";
 import imageBbe from "@/assets/img_bbe_library.png";
 import { TBonusCardProps } from "@/components/Motivation/SectionVolunteerBonuses/SectionVolunteerBonuses";
 
-export const bonusCardProps:TBonusCardProps[] =  [
+export const mockData:TBonusCardProps[] =  [
   {
     logo: imageDodoPizza,
     caption: "Додокоины в Додо Пицца",

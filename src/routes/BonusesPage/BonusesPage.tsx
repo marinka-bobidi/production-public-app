@@ -1,22 +1,19 @@
 import clsx from 'clsx';
-import { Link, Outlet } from 'react-router';
 import styles from './BonusesPage.module.scss';
+import { SectionVolunteerBonuses, TBonusCardProps } from '@/components/Motivation/SectionVolunteerBonuses/SectionVolunteerBonuses';
 
 export type BonusesPageProps = {
 	className?: string;
+	data: {result:TBonusCardProps[]}
 };
 
-export function BonusesPage({ className }: BonusesPageProps) {
+export function BonusesPage({ className, data }: BonusesPageProps) {
 	return (
 		<div
 			className={clsx(styles.container, className)}
 			data-testid="BonusesPage"
 		>
-			BonusesPage
-			<nav className="menu">
-				<Link to=":id">BonusDetailsPage</Link>
-			</nav>
-			<Outlet />
+			<SectionVolunteerBonuses bonusCardProps={data.result} tasksLink='https://ya.ru/'></SectionVolunteerBonuses>
 		</div>
 	);
 }

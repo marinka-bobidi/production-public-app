@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router';
+import { ActionFunctionArgs, LoaderFunctionArgs, useLoaderData } from 'react-router';
+import { mockData } from './mock';
 
 const LazyBonusesPage = lazy(() =>
 	import('./BonusesPage').then((module) => ({
@@ -10,16 +11,20 @@ const LazyBonusesPage = lazy(() =>
 const BonusesPage = (
 	props: JSX.IntrinsicAttributes & { children?: React.ReactNode }
 ) => {
+	const data = useLoaderData<loaderResponse>();
 	//здесь подключение данных
 	return (
 		<Suspense fallback={null}>
-			<LazyBonusesPage {...props} />
+			<LazyBonusesPage data={data} {...props} />
 		</Suspense>
 	);
 };
 
 async function loader({ params, request }: LoaderFunctionArgs) {
-	return null; // тут будет вызов к апи исходя из данных запроса
+	return Promise.resolve({
+		result: mockData,
+	})
+	 // тут будет вызов к апи исходя из данных запроса
 }
 
 async function action({ params, request }: ActionFunctionArgs) {
