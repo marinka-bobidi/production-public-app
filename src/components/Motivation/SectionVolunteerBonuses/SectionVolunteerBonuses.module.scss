@@ -3,29 +3,37 @@
 .container {
 	display: flex;
 	flex-direction: column;
-  margin: 0 auto;
+  margin: 64px auto 52px auto;
 	gap: 32px;
 	width: 1120px;
   font-family: $fontFamily;
 }
 
 .title {
-  align-self: flex-start;
-  margin: 0px;
+  display:block;
+  box-sizing:border-box;
+  margin-block-end: 48px;
   color: $titleFontColor;
   font-weight: $fontWeightBold;
-  font-size: 40px;
-  line-height: 48px;
-  letter-spacing: 0.01em;
+  font-size: 48px;
+  line-height: 56px;
 }
 
-.description {
-  max-width: 736px;
-  margin: 0;
+.paragraph {
+  margin-block-end: 28px;
   color: $fontColor;
   font-weight: $fontWeightMedium;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 28px;
+}
+
+.link {
+  text-decoration: underline;
+  color:inherit;
+}
+
+.link:hover {
+  color:$accent;
 }
 
 .bonusCards {
@@ -105,19 +113,3 @@
 }
 // end BonusCard
 
-.about {
-  display: flex;
-	column-gap: 33px;
-}
-
-.placeholder {
-  width: 736px;
-  height: 360px;
-	object-fit: cover;
-}
-
-.bottomDescription {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}

@@ -14,6 +14,10 @@ export function BonusesPage({ className, data }: BonusesPageProps) {
 			data-testid="BonusesPage"
 		>
 			<SectionVolunteerBonuses bonusCardProps={data.result} tasksLink='https://ya.ru/'></SectionVolunteerBonuses>
+			<div>
+				Заглушка для формы отправки вопроса
+			</div>
 		</div>
+		
 	);
 }

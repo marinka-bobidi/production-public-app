@@ -44,11 +44,11 @@ function BonusCard(props: TBonusCardProps) {
 export function SectionVolunteerBonuses({ className, bonusCardProps, tasksLink }: SectionVolunteerBonusesProps) {
   return <div className={clsx(styles.container, className)} data-testid="SectionVolunteerBonuses">
     <div className={styles.text}>
-      <Title Tag="h1">Бонусы партнеров</Title>
-      <Text Tag="p">
+      <Title Tag="h1" className={styles.title}>Бонусы партнеров</Title>
+      <Text Tag="p" className={styles.paragraph}>
       Волонтерство — это безвозмездно, но мы с нашими партнерами хотим выразить волонтерам нашу признательность за участие и наградить дружеским бонусом.
       </Text>
-      <Text Tag="p">
+      <Text Tag="p" className={styles.paragraph}>
       По результатам выполненных <Anchor className={styles.link} href={tasksLink}>заданий</Anchor>, в зависимости от накопленных баллов, волонтеры могут выбрать соответствующий бонус
       </Text>
     </div>
