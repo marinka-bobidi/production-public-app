@@ -25,10 +25,11 @@ const BlogPageWrapper = (
 };
 
 async function loader({
-	params,
-	request,
+  params,
+  request,
 }: LoaderFunctionArgs): Promise<LoaderData> {
-	return await Promise.resolve(blogPageMockData);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return blogPageMockData;
 }
 
 async function action({ params, request }: ActionFunctionArgs) {
