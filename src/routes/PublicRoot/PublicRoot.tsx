@@ -5,10 +5,13 @@ import { SectionHeroUrgant } from '@/components/Hero/SectionHeroUrgant/SectionHe
 import { SectionApply } from '@/components/SectionApply/SectionApply.tsx';
 import { APPLY_PROPS } from '@/settings.tsx';
 
-export type PublicRootProps = {
+export type SectionHeroAboutProjectProps = {
 	className?: string;
-	data: LoaderData
-};
+	title: string;
+	description: string[];
+	listItems: string[];
+	imageUrl: string;
+  };
 
 export function PublicRoot({ className, data }: PublicRootProps) {
 	console.log(data);
