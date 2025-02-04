@@ -15,6 +15,6 @@ export function PublicRoot({ className, data }: PublicRootProps) {
 
 	return (<main className={clsx(className, styles.container)} data-testid="PublicRoot">
 		<SectionHeroUrgant onPlay={() => {}} />
-		<SectionApply links={APPLY_PROPS} />
+		<SectionApply links={APPLY_PROPS} /> 
 	</main>);
 }
