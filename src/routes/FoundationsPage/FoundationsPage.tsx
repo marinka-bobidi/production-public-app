@@ -7,10 +7,11 @@ import { SectionHowToFund } from '@/components/HowTo/SectionHowToFund/SectionHow
 import { SectionPartners } from '@/components/SectionPartners/SectionPartners';
 import { SectionStats } from '@/components/SectionStats/SectionStats';
 import { SectionFundQuestions } from '@/components/Questions/SectionFundQuestions/SectionFundQuestions';
+import { LoaderData } from './loaderData';
 
 export type FoundationsPageProps = {
 	className?: string;
-	// data: LoaderData
+	data: LoaderData
 };
 
 export function FoundationsPage({ className}: FoundationsPageProps) {
