@@ -10,22 +10,32 @@ import { LoaderData } from './loaderData';
 
 export type FoundationsPageProps = {
 	className?: string;
-	data: LoaderData
+	data: LoaderData;
 };
 
-export function FoundationsPage({ className, data}: FoundationsPageProps) {
+export function FoundationsPage({ className, data }: FoundationsPageProps) {
 	return (
-		<div className={clsx(className, styles.container)} data-testid="FoundationsPage">
-			<SectionHeroFund onClick={()=> {}}/>
-			<SectionHowToFund nkoDataHowToWorkSteps={data.howToWorkSteps} onClick={()=> {}}/>
+		<div
+			className={clsx(className, styles.container)}
+			data-testid="FoundationsPage"
+		>
+			<SectionHeroFund onClick={() => {}} />
+			<SectionHowToFund
+				nkoDataHowToWorkSteps={data.howToWorkSteps}
+				onClick={() => {}}
+			/>
 			<div>
-			<SectionPartners/>
-			<p>В конпоненте SectionPartners нет реализации. пока просто заглушка </p>
+				<SectionPartners />
+				<p>
+					В конпоненте SectionPartners нет реализации. пока просто заглушка{' '}
+				</p>
 			</div>
-			<SectionFundQuestions nkoFaqCardProps={data.nkoFaqCard}/>
-			<SectionFundHistories nkoCardsData={data.nkoCardsData} onClick={()=>{}}/>
-			<SectionStats values={data.stats}/>	
+			<SectionFundQuestions nkoFaqCardProps={data.nkoFaqCard} />
+			<SectionFundHistories
+				nkoCardsData={data.nkoCardsData}
+				onClick={() => {}}
+			/>
+			<SectionStats values={data.stats} />
 		</div>
 	);
 }
-

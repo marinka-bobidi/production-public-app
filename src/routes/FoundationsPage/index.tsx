@@ -1,14 +1,13 @@
 import React, { lazy, Suspense } from 'react';
-import { ActionFunctionArgs, Await, data, LoaderFunctionArgs, useLoaderData } from 'react-router';
-import { LoaderData } from './loaderData';
 import {
-	values,
-	nkoCardsData,
-	nkoFaqCard,
-	howToWorkSteps
-} from './mock';
-
-
+	ActionFunctionArgs,
+	Await,
+	data,
+	LoaderFunctionArgs,
+	useLoaderData,
+} from 'react-router';
+import { LoaderData } from './loaderData';
+import { values, nkoCardsData, nkoFaqCard, howToWorkSteps } from './mock';
 
 const LazyFoundationsPage = lazy(() =>
 	import('./FoundationsPage').then((module) => ({
@@ -23,7 +22,7 @@ const FoundationsPage = (
 	return (
 		<Suspense fallback={null}>
 			<Await resolve={data}>
-			<LazyFoundationsPage {...props} data={data} />
+				<LazyFoundationsPage {...props} data={data} />
 			</Await>
 		</Suspense>
 	);
@@ -34,8 +33,7 @@ async function loader({ request }: LoaderFunctionArgs): Promise<LoaderData> {
 		stats: values,
 		nkoCardsData: nkoCardsData,
 		nkoFaqCard: nkoFaqCard,
-		howToWorkSteps: howToWorkSteps
-		
+		howToWorkSteps: howToWorkSteps,
 	}; // тут будет вызов к апи исходя из данных запроса
 }
 
