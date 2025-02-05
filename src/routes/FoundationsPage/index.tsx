@@ -3,8 +3,12 @@ import { ActionFunctionArgs, Await, data, LoaderFunctionArgs, useLoaderData } fr
 import { LoaderData } from './loaderData';
 import {
 	values,
-	
+	nkoCardsData,
+	nkoFaqCardProps,
+	howToWorkSteps
 } from './mock';
+
+
 
 const LazyFoundationsPage = lazy(() =>
 	import('./FoundationsPage').then((module) => ({
@@ -21,7 +25,6 @@ const FoundationsPage = (
 			<Await resolve={data}>
 			<LazyFoundationsPage {...props} data={data} />
 			</Await>
-			
 		</Suspense>
 	);
 };
@@ -29,7 +32,9 @@ const FoundationsPage = (
 async function loader({ request }: LoaderFunctionArgs): Promise<LoaderData> {
 	return {
 		stats: values,
-		nkoCardsData:
+		nkoCardsData: nkoCardsData,
+		nkoFaqCard: nkoFaqCardProps,
+		howToWorkSteps: howToWorkSteps
 		
 	}; // тут будет вызов к апи исходя из данных запроса
 }
