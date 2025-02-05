@@ -1,4 +1,3 @@
-import type { Stats } from '@/api/getHomePageStats.ts';
 import { IStoryCard } from '@/components/Histories/types';
 import { DataHowToWorkStep } from '@/components/HowTo/types';
 import { FAQCardProps } from '@/components/Questions/types';
@@ -9,9 +8,9 @@ type CardKPI = {
   }
 
 export type LoaderData = {
-	stats: Stats;
+	stats: CardKPI[];
 	nkoFaqCard: FAQCardProps[];
-	howToWorkSteps: DataHowToWorkStep;
+	howToWorkSteps: DataHowToWorkStep[];
 	nkoCardsData: IStoryCard[];
-	statsValues: CardKPI[];
+	
 };

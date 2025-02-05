@@ -1,5 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router';
+import { ActionFunctionArgs, Await, data, LoaderFunctionArgs, useLoaderData } from 'react-router';
+import { LoaderData } from './loaderData';
+import {
+	values,
+	
+} from './mock';
 
 const LazyFoundationsPage = lazy(() =>
 	import('./FoundationsPage').then((module) => ({
@@ -10,16 +15,23 @@ const LazyFoundationsPage = lazy(() =>
 const FoundationsPage = (
 	props: JSX.IntrinsicAttributes & { children?: React.ReactNode }
 ) => {
-	//здесь подключение данных
+	const data = useLoaderData<typeof loader>();
 	return (
 		<Suspense fallback={null}>
-			<LazyFoundationsPage {...props} />
+			<Await resolve={data}>
+			<LazyFoundationsPage {...props} data={data} />
+			</Await>
+			
 		</Suspense>
 	);
 };
 
-async function loader({ params, request }: LoaderFunctionArgs) {
-	return null; // тут будет вызов к апи исходя из данных запроса
+async function loader({ request }: LoaderFunctionArgs): Promise<LoaderData> {
+	return {
+		stats: values,
+		nkoCardsData:
+		
+	}; // тут будет вызов к апи исходя из данных запроса
 }
 
 async function action({ params, request }: ActionFunctionArgs) {
