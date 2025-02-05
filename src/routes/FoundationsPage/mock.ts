@@ -80,7 +80,7 @@ export const howToWorkSteps = [
 	},
 		]
 
-	export const nkoFaqCardProps = [
+	export const nkoFaqCard = [
 		{
 			title: 'Каким требованиям должна соответствовать НКО?',
 			description: '10 важных для нас критериев',
@@ -96,7 +96,7 @@ export const howToWorkSteps = [
 			},
 		},
 		{
-			title: 'Как НКО получить доступ к ProCharity??',
+			title: 'Как НКО получить доступ к ProCharity?',
 			description: 'Разбираем процесс регистрации',
 			handleCardClick: () => {
 				alert('Click');

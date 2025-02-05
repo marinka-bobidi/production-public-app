@@ -14,14 +14,13 @@ export type FoundationsPageProps = {
 };
 
 export function FoundationsPage({ className, data}: FoundationsPageProps) {
-	console.log(data)
 	return (
 		<div className={clsx(className, styles.container)} data-testid="FoundationsPage">
 			<SectionHeroFund onClick={()=> {}}/>
 			<SectionHowToFund nkoDataHowToWorkSteps={data.howToWorkSteps} onClick={()=> {}}/>
 			<div>
 			<SectionPartners/>
-			<p>Здесь будет информация о партнёрах фонда.</p>
+			<p>В конпоненте SectionPartners нет реализации. пока просто заглушка </p>
 			</div>
 			<SectionFundQuestions nkoFaqCardProps={data.nkoFaqCard}/>
 			<SectionFundHistories nkoCardsData={data.nkoCardsData} onClick={()=>{}}/>

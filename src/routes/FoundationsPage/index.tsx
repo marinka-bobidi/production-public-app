@@ -4,7 +4,7 @@ import { LoaderData } from './loaderData';
 import {
 	values,
 	nkoCardsData,
-	nkoFaqCardProps,
+	nkoFaqCard,
 	howToWorkSteps
 } from './mock';
 
@@ -33,7 +33,7 @@ async function loader({ request }: LoaderFunctionArgs): Promise<LoaderData> {
 	return {
 		stats: values,
 		nkoCardsData: nkoCardsData,
-		nkoFaqCard: nkoFaqCardProps,
+		nkoFaqCard: nkoFaqCard,
 		howToWorkSteps: howToWorkSteps
 		
 	}; // тут будет вызов к апи исходя из данных запроса
