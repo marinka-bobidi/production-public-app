@@ -19,7 +19,10 @@ export function FoundationsPage({ className, data}: FoundationsPageProps) {
 		<div className={clsx(className, styles.container)} data-testid="FoundationsPage">
 			<SectionHeroFund onClick={()=> {}}/>
 			<SectionHowToFund nkoDataHowToWorkSteps={data.howToWorkSteps} onClick={()=> {}}/>
-			<SectionPartners className={clsx(className, styles.container)}/>
+			<div>
+			<SectionPartners/>
+			<p>Здесь будет информация о партнёрах фонда.</p>
+			</div>
 			<SectionFundQuestions nkoFaqCardProps={data.nkoFaqCard}/>
 			<SectionFundHistories nkoCardsData={data.nkoCardsData} onClick={()=>{}}/>
 			<SectionStats values={data.stats}/>	
