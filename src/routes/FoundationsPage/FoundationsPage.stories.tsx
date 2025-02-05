@@ -3,6 +3,7 @@ import { expect, within } from '@storybook/test';
 
 import { MemoryRouter } from 'react-router';
 import { FoundationsPage } from './FoundationsPage';
+import { LoaderData } from './loaderData';
 
 const meta = {
 	title: 'Root/FoundationsPage',
@@ -28,6 +29,10 @@ type Story = StoryObj<typeof meta>;
 
 // More on interaction testing: https://storybook.js.org/docs/writing-tests/interaction-testing
 export const WithStateChanged: Story = {
+	args: {
+		className: '',
+		data: {} as LoaderData, // Укажи реальные данные
+	},
 	play: async ({ canvasElement }) => {
 		const canvas = within(canvasElement);
 		const element = canvas.getByTestId('FoundationsPage');
