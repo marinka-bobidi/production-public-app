@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import styles from './FoundationsPage.module.scss';
-import { Link, Outlet } from 'react-router';
 import { SectionHeroFund } from '@/components/Hero/SectionHeroFund/SectionHeroFund';
 import { SectionFundHistories } from '@/components/Histories/SectionFundHistories/SectionFundHistories';
 import { SectionHowToFund } from '@/components/HowTo/SectionHowToFund/SectionHowToFund';
@@ -20,7 +19,7 @@ export function FoundationsPage({ className, data}: FoundationsPageProps) {
 		<div className={clsx(className, styles.container)} data-testid="FoundationsPage">
 			<SectionHeroFund onClick={()=> {}}/>
 			<SectionHowToFund nkoDataHowToWorkSteps={data.howToWorkSteps} onClick={()=> {}}/>
-			<SectionPartners/>
+			<SectionPartners className={clsx(className, styles.container)}/>
 			<SectionFundQuestions nkoFaqCardProps={data.nkoFaqCard}/>
 			<SectionFundHistories nkoCardsData={data.nkoCardsData} onClick={()=>{}}/>
 			<SectionStats values={data.stats}/>	
