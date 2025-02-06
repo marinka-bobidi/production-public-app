@@ -1,7 +1,7 @@
 import imageDodoPizza from "@/assets/img_dodo_pizza.png";
 import imageAzbuka from "@/assets/img_azbuca_atticus.png";
 import imageBbe from "@/assets/img_bbe_library.png";
-import { TBonusCardProps } from "@/components/Motivation/SectionVolunteerBonuses/SectionVolunteerBonuses";
+import { TBonusCardProps } from "./BonusesPage";
 
 export const mockData:TBonusCardProps[] =  [
   {
