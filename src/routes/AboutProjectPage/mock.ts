@@ -46,8 +46,22 @@ export const LoaderData: LoaderDataType = {
 		},
 	],
 	team: [
-		{ fistname: 'John', lastName: 'Doe', category: 'Procharity' },
-		{ fistname: 'Jane', lastName: 'Smith', category: 'Разработка' },
+		{
+			fistname: 'Зульфия',
+			lastName: 'Миннетдинова',
+			category: 'Руководитель проекта',
+		},
+		{ fistname: 'Катерина', lastName: 'Бриль', category: 'Продакт-менеджер' },
+		{
+			fistname: 'Ульяна',
+			lastName: 'Кожокарь',
+			category: 'Клиентский менеджер',
+		},
+		{
+			fistname: 'Светлана',
+			lastName: 'Павлюкова',
+			category: 'Клиентский менеджер',
+		},
 	],
 	documents: [
 		{ name: 'Документ 1', size: '1MB', extention: 'pdf', link: 'link_to_doc1' },
