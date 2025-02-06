@@ -10,8 +10,7 @@
 	background-size: cover;
 	padding: 80px 160px;
 	min-width: 1120px;
-  height: 100%;
-	// min-width: 900px;
+	height: 100%;
 }
 
 .box {
@@ -19,52 +18,15 @@
 	flex-direction: column;
 }
 
-.box > *:last-child {
-	margin-top: 38px;
-}
-
-.title {
-	align-self: flex-start;
-	margin: 0px;
-	color: $titleFontColor;
-	font-weight: $fontWeightBold;
-	font-size: 40px;
-	line-height: 48px;
-	letter-spacing: 0.01em;
-	margin-bottom: 48px;
-}
-
 .list {
-	align-self: flex-start;
-	margin: 0;
+	margin-top: 48px;
+	margin-bottom: 32px;
 	padding: 0;
 	display: flex;
 	flex-direction: row;
 	gap: 32px;
 	list-style: none;
-}
-
-.cardElement {
-	display: flex;
-	flex-direction: column;
-	padding: 24px;
-	gap: 16px;
-	width: 304px;
 	height: auto;
-	background-color: $backgroundColor;
-	box-shadow: 0px 0px 10px 0px rgba(55, 65, 70, 0.08);
-	border-radius: 8px;
-}
-
-.img {
-	height: auto;
-	width: auto;
-	aspect-ratio: 1 / 1;
-	object-fit: cover;
-}
-
-.cardDescription {
-	margin: 0;
 	color: $titleFontColor;
 	font-weight: $fontWeightBold;
 	font-size: 16px;
@@ -72,36 +34,47 @@
 	letter-spacing: 0.25px;
 }
 
-.cardDate {
-	color: $fontLabelColor;
-	font-size: $fontSizeXXS;
-	font-weight: $fontWeightMedium;
-	line-height: 18px;
-	text-align: left;
-	margin-bottom: auto;
-}
-
 .linkWrapper {
 	align-self: self-end;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	padding: 4px;
-	gap: 8px;
+	// padding: 4px;
+	// gap: 8px;
+	// height: 24px;
 }
 
 .linkText {
 	text-transform: uppercase;
-	text-align: center;
-	margin: 0;
-	color: $titleFontColor;
-	font-weight: $fontWeightBold;
 	font-size: 12px;
 	line-height: 16px;
-	letter-spacing: 1px;
-	text-decoration: none;
 }
 
-.arrowRight {
-	width: 16px;
-}
+// .arrowRight {
+// 	width: 16px;
+// }
+
+// .img {
+// 	height: auto;
+// 	width: auto;
+// 	aspect-ratio: 1 / 1;
+// 	object-fit: cover;
+// }
+
+// .cardDescription {
+// 	margin: 0;
+// 	color: $titleFontColor;
+// 	font-weight: $fontWeightBold;
+// 	font-size: 16px;
+// 	line-height: 24px;
+// 	letter-spacing: 0.25px;
+// }
+
+// .cardDate {
+// 	color: $fontLabelColor;
+// 	font-size: $fontSizeXXS;
+// 	font-weight: $fontWeightMedium;
+// 	line-height: 18px;
+// 	text-align: left;
+// 	margin-bottom: auto;
+// }

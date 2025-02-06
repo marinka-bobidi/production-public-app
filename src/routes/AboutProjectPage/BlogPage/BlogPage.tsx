@@ -1,49 +1,42 @@
 import clsx from 'clsx';
 import styles from './BlogPage.module.scss';
-import { LoaderData } from './loaderData.tsx';
-import arrowRight from '@/assets/icon_arrow_path.svg';
+import { GoToLink, Title, CardNews, Anchor } from '@charitypro/ui-kit';
+import { PreNews } from './type';
 
-export type NewsCard = {
-	id: string;
-	picture?: string;
-	description?: string;
-	date?: string;
-	alt?: string;
-	handleCardClick?: () => void;
-};
-
-export type BlogPageProps = {
+export function BlogPage({
+	className,
+	data,
+	allNewsLink,
+}: {
 	className?: string;
-	data: LoaderData;
+	data: PreNews[];
 	allNewsLink?: string;
-};
-
-export function BlogPage({ className, data, allNewsLink }: BlogPageProps) {
+}) {
 	return (
 		<div className={clsx(styles.container, className)} data-testid="BlogPage">
 			<div className={styles.box}>
-				<h1 className={styles.title}>Новости</h1>
+				<Title Tag="h1">Новости</Title>
 				<ul className={styles.list}>
-					{data.news.map((prop) => (
-						<li
-							className={styles.cardElement}
-							onClick={prop.handleCardClick}
-							key={prop.id}
-						>
-							<img className={styles.img} src={prop.picture} alt={prop.alt} />
-							<p className={styles.cardDescription}>{prop.description}</p>
-							<p className={styles.cardDate}>{prop.date}</p>
-						</li>
+					{data.map((prop) => (
+						<Anchor key={prop.id} href={prop.url}>
+							<CardNews
+								title={prop.description || ''}
+								formAvatar="square"
+								infoDate={prop.date}
+								userImage={prop.picture}
+							/>
+						</Anchor>
 					))}
 				</ul>
-				<a href={allNewsLink} className={styles.linkWrapper}>
+				<GoToLink
+					className={styles.linkWrapper}
+					href={allNewsLink}
+					iconPosition="right"
+					variant="link"
+					Tag={'a'}
+				>
 					<p className={styles.linkText}>Все новости</p>
-					<img
-						className={styles.arrowRight}
-						src={arrowRight}
-						alt="Стрелка вправо"
-					/>
-				</a>
+				</GoToLink>
 			</div>
 		</div>
 	);

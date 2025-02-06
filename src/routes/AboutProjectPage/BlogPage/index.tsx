@@ -4,8 +4,8 @@ import {
 	LoaderFunctionArgs,
 	useLoaderData,
 } from 'react-router';
-import { blogPageMockData } from './mock'; // Моковые данные
-import { LoaderData } from './loaderData';
+import { blogPageMockData } from './mock';
+import { PreNews } from './type';
 
 const LazyBlogPage = lazy(() =>
 	import('./BlogPage').then((module) => ({
@@ -24,16 +24,23 @@ const BlogPageWrapper = (
 	);
 };
 
-async function loader({
-  params,
-  request,
-}: LoaderFunctionArgs): Promise<LoaderData> {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return blogPageMockData;
+async function loader(
+	{
+		// params,
+		// request,
+	}: LoaderFunctionArgs
+): Promise<PreNews[]> {
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+	return Promise.resolve(blogPageMockData);
 }
 
-async function action({ params, request }: ActionFunctionArgs) {
-	return null;
+async function action(
+	{
+		// params,
+		// request
+	}: ActionFunctionArgs
+) {
+	return Promise.resolve(null);
 }
 
 export type loaderResponse = Awaited<ReturnType<typeof loader>>;
