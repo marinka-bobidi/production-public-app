@@ -23,14 +23,14 @@ export type Contact = {
 	value: string;
 };
 
-export type LoaderData = {
+export type LoaderDataType = {
 	news: NewsItem[];
 	team: TeamMember[];
 	documents: Document[];
 	contacts: Contact[];
 };
 
-export const LoaderData: LoaderData = {
+export const LoaderData: LoaderDataType = {
 	news: [
 		{
 			imgUrl: 'path/to/image1.jpg',

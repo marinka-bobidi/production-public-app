@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import { Link, Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router-dom'; 
 import styles from './AboutProjectPage.module.scss';
 import { SectionHeroAboutProject } from '@/components/Hero/SectionHeroAboutProject/SectionHeroAboutProject';
 import { StaticNews, StaticTeam, StaticDocuments, StaticContacts } from '@charitypro/ui-kit';
-import { LoaderData } from './mock';
+import { LoaderDataType } from './mock';
 
 import { useLoaderData } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export type AboutProjectPageProps = {
 };
 
 export function AboutProjectPage({ className }: AboutProjectPageProps) {
-	const loaderData = useLoaderData<LoaderData>(); // Используем тип LoaderData для данных
+	const loaderData = useLoaderData<LoaderDataType>();// Используем тип LoaderData для данных
   
 	return (
 	  <div className={clsx(className, styles.container)}>
