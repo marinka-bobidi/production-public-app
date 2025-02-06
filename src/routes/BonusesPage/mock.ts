@@ -1,7 +1,8 @@
 import imageDodoPizza from "@/assets/img_dodo_pizza.png";
 import imageAzbuka from "@/assets/img_azbuca_atticus.png";
 import imageBbe from "@/assets/img_bbe_library.png";
-import { TBonusCardProps } from "./BonusesPage";
+import { TBonusCardProps } from "./ui/BonusCard";
+
 
 export const mockData:TBonusCardProps[] =  [
   {

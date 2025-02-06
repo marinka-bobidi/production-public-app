@@ -1,43 +1,12 @@
 import clsx from 'clsx';
 import styles from './BonusesPage.module.scss';
-import imgDiamond from '@/assets/icon_diamond_white.svg';
 import { Anchor, Title, Text } from "@charitypro/ui-kit";
+import { BonusCard, TBonusCardProps } from './ui/BonusCard';
 
 export type SectionVolunteerBonusesProps = {
   className?: string;
   bonusCardProps: TBonusCardProps[];
   tasksLink: string;
-};
-
-export type TBonusCardProps = {
-  logo: string;
-  caption: string;
-  category: string;
-  points?: number;
-  onClickCard: () => void;
-};
-
-function BonusCard(props: TBonusCardProps) {
-  const {
-    logo,
-    caption,
-    category,
-    points = 1,
-    onClickCard,
-  } = props;
-  return (
-    <article className={styles.card} onClick={onClickCard}>
-      <div className={styles.cardTop}>
-        <p className={styles.category}>{category}</p>
-        <div className={styles.diamond}>
-            <p className={styles.titleDiamond}>{points}</p>
-            <img src={imgDiamond} className={styles.imgDiamond} alt="diamond" />
-        </div>
-      </div>
-      <img className={styles.logo} src={logo} alt="Логотип" />
-      <p className={styles.caption}>{caption}</p>
-    </article>
-  );
 };
 
 export type BonusesPageProps = {
