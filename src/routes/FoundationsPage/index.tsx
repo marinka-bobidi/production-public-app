@@ -29,12 +29,14 @@ const FoundationsPage = (
 };
 
 async function loader({ request }: LoaderFunctionArgs): Promise<LoaderData> {
-	return {
-		stats: values,
-		nkoCardsData: nkoCardsData,
-		nkoFaqCard: nkoFaqCard,
-		howToWorkSteps: howToWorkSteps,
-	}; // тут будет вызов к апи исходя из данных запроса
+	return Promise.resolve(
+		{
+			stats: values,
+			nkoCardsData: nkoCardsData,
+			nkoFaqCard: nkoFaqCard,
+			howToWorkSteps: howToWorkSteps,
+		}
+	); // тут будет вызов к апи исходя из данных запроса
 }
 
 async function action({ params, request }: ActionFunctionArgs) {
