@@ -3,6 +3,7 @@ import { expect, within } from '@storybook/test';
 import { MemoryRouter } from 'react-router';
 
 import { BonusesPage } from './BonusesPage';
+import { mockData } from './mock';
 
 const meta = {
 	title: 'Root/BonusesPage',
@@ -13,6 +14,11 @@ const meta = {
 		viewport: {
 			defaultViewport: 'desktop',
 		},
+	},
+	args: {
+		data: {
+			result: mockData
+		}
 	},
 	decorators: [
 		(Story) => (
