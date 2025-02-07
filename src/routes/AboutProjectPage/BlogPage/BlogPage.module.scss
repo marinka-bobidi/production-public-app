@@ -1,4 +1,80 @@
 @use '@styles/variables' as *;
 
 .container {
+	background-color: $primary;
+	display: flex;
+	justify-content: center;
+	background-image: url(@/assets/bg_howitworks.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 80px 160px;
+	min-width: 1120px;
+	height: 100%;
 }
+
+.box {
+	display: flex;
+	flex-direction: column;
+}
+
+.list {
+	margin-top: 48px;
+	margin-bottom: 32px;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
+	list-style: none;
+	height: auto;
+	color: $titleFontColor;
+	font-weight: $fontWeightBold;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.25px;
+}
+
+.linkWrapper {
+	align-self: self-end;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	// padding: 4px;
+	// gap: 8px;
+	// height: 24px;
+}
+
+.linkText {
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+// .arrowRight {
+// 	width: 16px;
+// }
+
+// .img {
+// 	height: auto;
+// 	width: auto;
+// 	aspect-ratio: 1 / 1;
+// 	object-fit: cover;
+// }
+
+// .cardDescription {
+// 	margin: 0;
+// 	color: $titleFontColor;
+// 	font-weight: $fontWeightBold;
+// 	font-size: 16px;
+// 	line-height: 24px;
+// 	letter-spacing: 0.25px;
+// }
+
+// .cardDate {
+// 	color: $fontLabelColor;
+// 	font-size: $fontSizeXXS;
+// 	font-weight: $fontWeightMedium;
+// 	line-height: 18px;
+// 	text-align: left;
+// 	margin-bottom: auto;
+// }

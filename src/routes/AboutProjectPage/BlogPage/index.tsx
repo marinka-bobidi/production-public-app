@@ -1,8 +1,11 @@
-import { getActualItems } from '@/api/getActualItems';
-import { getProjectNews } from '@/api/getNews';
-import { getVolunteersOfTheMonth } from '@/api/getVolunteersOfTheMonth';
 import React, { lazy, Suspense } from 'react';
-import { ActionFunctionArgs, LoaderFunctionArgs } from 'react-router';
+import {
+	ActionFunctionArgs,
+	LoaderFunctionArgs,
+	useLoaderData,
+} from 'react-router';
+import { blogPageMockData } from './mock';
+import { PreNews } from './type';
 
 const LazyBlogPage = lazy(() =>
 	import('./BlogPage').then((module) => ({
@@ -10,37 +13,40 @@ const LazyBlogPage = lazy(() =>
 	}))
 );
 
-const BlogPage = (
+const BlogPageWrapper = (
 	props: JSX.IntrinsicAttributes & { children?: React.ReactNode }
 ) => {
-	//здесь подключение данных
+	const data = useLoaderData<loaderResponse>();
 	return (
-		<Suspense fallback={null}>
-			<LazyBlogPage {...props} />
+		<Suspense fallback={<p>Loading...</p>}>
+			<LazyBlogPage {...props} data={data} />
 		</Suspense>
 	);
 };
 
-// Загружаем данные для текущей категории
-async function loader({ request }: LoaderFunctionArgs) {
-	const url = new URL(request.url);
-	const tab = url.searchParams.get('tab') || 'blog'; // По умолчанию 'blog'
-	const limit = parseInt(url.searchParams.get('limit') || '10', 10);
-	const offset = parseInt(url.searchParams.get('offset') || '0', 10);
+async function loader(
+	{
+		// params,
+		// request,
+	}: LoaderFunctionArgs
+): Promise<PreNews[]> {
+	await new Promise((resolve) => setTimeout(resolve, 1000));
+	return Promise.resolve(blogPageMockData);
+}
 
-	// Загружаем данные о волонтерах месяца и актуальных статьях
-	const [news, volunteers, actualItems] = await Promise.all([
-		getProjectNews({ limit, offset, category: tab as 'blog' | 'webinars' }),
-		getVolunteersOfTheMonth(), // Получаем список волонтеров месяца
-		getActualItems(), // Получаем актуальные статьи
-	]);
-
-	return { news, tab, volunteers, actualItems };
+async function action(
+	{
+		// params,
+		// request
+	}: ActionFunctionArgs
+) {
+	return Promise.resolve(null);
 }
 
 export type loaderResponse = Awaited<ReturnType<typeof loader>>;
 
 export default {
 	loader,
-	element: <BlogPage />,
+	action,
+	element: <BlogPageWrapper />,
 };
