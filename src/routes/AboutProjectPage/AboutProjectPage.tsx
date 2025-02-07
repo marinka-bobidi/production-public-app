@@ -1,36 +1,41 @@
 import clsx from 'clsx';
-import { Link, Outlet } from 'react-router-dom'; 
+import { Link, Outlet } from 'react-router';
 import styles from './AboutProjectPage.module.scss';
 import { SectionHeroAboutProject } from '@/components/Hero/SectionHeroAboutProject/SectionHeroAboutProject';
 import { LoaderDataType } from './mock';
 
-import { useLoaderData } from 'react-router-dom';
-
 export type AboutProjectPageProps = {
   className?: string;
+  loaderData?: LoaderDataType; // Делаем loaderData необязательным
 };
 
-export function AboutProjectPage({ className }: AboutProjectPageProps) {
-  const loaderData = useLoaderData<LoaderDataType>();
+// Значение по умолчанию для безопасного рендеринга
+const defaultLoaderData: LoaderDataType = {
+  news: [],
+  team: [],
+  documents: [],
+  contacts: [],
+};
 
-  
+export function AboutProjectPage({ className, loaderData = defaultLoaderData }: AboutProjectPageProps) {
   return (
     <div className={clsx(className, styles.container)}>
-    <nav className={styles.menu}>
-      <Link to="team">Команда</Link>
-      <Link to="events">Блог</Link>
-      <Link to="documents_and_requisites">Документы</Link>
-      <Link to="partners">Партнеры</Link>
-      <Link to="contacts">Контакты</Link>
-      <Link to="donation">Пожертвования</Link>
-      <Link to="volunteers_list">Волонтеры</Link>
-      <Link to="foundations_list">Фонды</Link>
-      <Link to="company_list">Компании</Link>
-    </nav>
-    <Outlet />
-    <SectionHeroAboutProject />
-       {/* заглушка для новостей */}
-       <section className={styles.section}>
+      <nav className={styles.menu}>
+        <Link to="team">Команда</Link>
+        <Link to="events">Блог</Link>
+        <Link to="documents_and_requisites">Документы</Link>
+        <Link to="partners">Партнеры</Link>
+        <Link to="contacts">Контакты</Link>
+        <Link to="donation">Пожертвования</Link>
+        <Link to="volunteers_list">Волонтеры</Link>
+        <Link to="foundations_list">Фонды</Link>
+        <Link to="company_list">Компании</Link>
+      </nav>
+      <Outlet />
+      <SectionHeroAboutProject />
+
+      {/* Блок новостей */}
+      <section className={styles.section}>
         <h2 className={styles.newsTitle}>Новости</h2>
         {loaderData.news.length > 0 ? (
           <div className={styles.newsList}>
@@ -51,7 +56,8 @@ export function AboutProjectPage({ className }: AboutProjectPageProps) {
           Все новости →
         </a>
       </section>
-      {/* зааглушка для команды */}
+
+      {/* Блок команды */}
       <section className={styles.section}>
         <div className={clsx(styles.wrapper)}>
           <h2 className={styles.title}>Команда</h2>
@@ -67,7 +73,7 @@ export function AboutProjectPage({ className }: AboutProjectPageProps) {
                   <div></div> {/* Заглушка для картинки */}
                   <div>
                     <p className={styles.card__name}>
-                      {member.firstname} {member.lastName}
+                      {member.fistName} {member.lastName}
                     </p>
                     <p className={styles.card__category}>{member.category}</p>
                   </div>
@@ -79,8 +85,9 @@ export function AboutProjectPage({ className }: AboutProjectPageProps) {
           )}
         </div>
       </section>
-    {/* заглушка для документов */}
-    <section className={styles.section}>
+
+      {/* Блок документов */}
+      <section className={styles.section}>
         <div className={clsx(styles.wrapper)}>
           <h2 className={styles.documentsTitle}>Документы и реквизиты</h2>
           {loaderData.documents.length > 0 ? (
@@ -107,8 +114,9 @@ export function AboutProjectPage({ className }: AboutProjectPageProps) {
           )}
         </div>
       </section>
-{/* заглушка для контактов */}
-<section className={styles.section}>
+
+      {/* Блок контактов */}
+      <section className={styles.section}>
         <div className={clsx(styles.wrapper)}>
           <h2 className={styles.title}>Контакты</h2>
           {loaderData.contacts.length > 0 ? (
